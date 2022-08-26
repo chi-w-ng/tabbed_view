@@ -49,9 +49,11 @@ class TabbedViewController extends ChangeNotifier {
   }
 
   /// Adds multiple [TabData].
-  void addTabs(Iterable<TabData> iterable) {
+  void addTabs(Iterable<TabData> iterable, [bool notify = true]) {
     _tabs.addAll(iterable);
-    _afterIncTabs();
+    if (notify) {
+      _afterIncTabs();
+    }
   }
 
   /// Adds a [TabData].
